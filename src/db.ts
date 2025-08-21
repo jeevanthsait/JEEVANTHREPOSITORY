@@ -12,3 +12,5 @@ export async function connectToDB() {
 export function getCollection<T extends Document>(name: string): Collection<T> {
   return db.collection<T>(name);
 }
+
+//hii i am jeevs

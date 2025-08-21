@@ -6,7 +6,7 @@ import { error } from "console";
 
 const router = Router();
 const Employees = () => getCollection("Employees");
-
+//ss
 
 router.post("/", async (req, res) => {
     const result = await Employees().insertOne(req.body);

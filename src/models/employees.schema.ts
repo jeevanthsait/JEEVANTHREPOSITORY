@@ -5,7 +5,7 @@ export enum UserRole {
   USER = "user",
 }
 
-// check development changes
+
 export interface IUser extends Document {
   name: string;
   email: string;

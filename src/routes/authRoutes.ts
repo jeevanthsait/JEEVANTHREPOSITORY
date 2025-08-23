@@ -1,15 +1,9 @@
-import { Router } from "express";
-import { register,login } from "../controllers/authController";
-import { authenticate } from "../middleware/auth";
-
-const router = Router();
+import { register, login, getProfile } from "../controllers/authController";
+import { authenticateJWT } from "../middleware/authMiddleware";
+import router from "./userRoutes";
 
 router.post("/register", register);
 router.post("/login", login);
-
-
-router.get("/profile", authenticate, (req, res) => {
-  res.json({ message: "Protected route accessed", user: (req as any).user });
-});
+router.get("/profile", authenticateJWT, getProfile);
 
 export default router;

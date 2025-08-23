@@ -13,7 +13,7 @@ router.get(
     res.json({ message: "Welcome Admin! Only admins can see this." });
   }
 );
-
+  
 router.get(
   "/manager-report",
   authenticateJWT,

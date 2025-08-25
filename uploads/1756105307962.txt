@@ -1,0 +1,110 @@
+INFORMATIONS ABOUT THE PROJECT
+
+
+PROJECT TITTLE-SPOTZ
+
+Scope of project:
+1.The Spotz is an Applications used to book the (venue) for the particular Events.
+Example:
+-I am Admin I need to conduct the football match so I need the venue I can go the Spotz app for booking like(one hour,one day).
+
+Servers:
+
+Old servers:
+1.qa.findspotz.io (development server local)
+2.demo.findspotz.io(staging server)
+3.findspotz.io(production server (live server))--super admin
+
+New servers
+1.new-qa.findspotz.io(dev server)
+2.new-demo.findspotz.io(stage server)
+3.findspotz.io(production server(live server))
+
+Frontend:
+*Angularts-16.2.15(v)
+*Typescript- 5.1.3
+
+
+Backend:
+*Nodejs- 18.19.0(v)
+*Express- 8.4.1
+*Mongodb-4.19.2
+
+Roles
+1.Superadmin--full access in the project
+2.Host--Particular Access.
+3.Users-less access like customer for ordering the organizations.
+
+
+System Users
+ 1.Admin
+ 2.
+
+
+7 major page:
+
+1. Landing page--Features(search, space view functions, login, logout)
+2. Dashboard--Inside the dashboard, all type of organizations are listed in the Dashboard.
+3.Organization - It contains facilities .
+ ex:
+
+4. Facility     - It contains the space that the user is going to book.( like if user books school - what are the constraints need(classroom, playground and so on).
+5. Space        - It contains the particular space details( like prize details, how much people can play and so on)
+6. Booking       -  It contains the start date, end date for booking a specific space, and payment details(payment includes credit card, offline cash payment, invoice...)
+7. Search       -  filter by org name,facilityname, location (based on these filter, it show the available space ).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Browser  Default client link
+
+https://new-qa.findspotz.io/
+
+findspotz.io--super admin
+
+
+
+Today Notes(22/8/25)
+
+* In the spotz project there are three access
+
+1.Super admin-can access everything in the project
+Example:
+--He can access all the organizations and also create the by it own.
+--host-he cannot create the organizations but he can particular org
+--Users-can can book (client)
+
+
+Organizations Creations
+--Admin can access only for super = admin and host not for users
+Inside it
+*Add organizations
+-Facility--add the fields
+example:
+*width, height
+*space
+
+Booking Process
+
+---Availability in the boking
+
+
+Payment method access
+---super admin --only credit shows
+---host--credit card-offline payment-Invoices
+---User-Credit card

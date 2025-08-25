@@ -5,6 +5,7 @@ import User from "../models/User";
 import { AuthRequest } from "../middleware/authMiddleware";
 import { MESSAGES } from "../constants/messages";
 import { CONFIG } from "../constants/config";
+import Product from "../models/product";
 
 export const register = async (req: Request, res: Response) => {
   try {
@@ -70,3 +71,5 @@ export const getProfile = async (req: AuthRequest, res: Response) => {
     });
   }
 };
+
+

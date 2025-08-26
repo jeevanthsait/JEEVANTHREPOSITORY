@@ -6,7 +6,8 @@ export const createProduct = async (req: Request, res: Response) => {
   try {
     const { name, description, price } = req.body;
 
-    const imagePaths = (req.files as Express.Multer.File[]).map(file => file.path);
+    // Save only filenames, not objects
+    const imagePaths = (req.files as Express.Multer.File[]).map(file => file.filename);
 
     const product = await Product.create({
       name,
@@ -14,12 +15,12 @@ export const createProduct = async (req: Request, res: Response) => {
       price,
       images: imagePaths,
     });
+
     res.status(201).json({ message: "Product created", product });
   } catch (error: any) {
     res.status(500).json({ message: error.message });
   }
 };
-
 
 export const getProducts = async (req: Request, res: Response) => {
   try {
@@ -47,7 +48,7 @@ export const updateProduct = async (req: Request, res: Response) => {
     const { name, description, price } = req.body;
 
     const imagePaths = req.files 
-      ? (req.files as Express.Multer.File[]).map(file => file.path)
+      ? (req.files as Express.Multer.File[]).map(file => file.filename)
       : [];
 
     const product = await Product.findByIdAndUpdate(

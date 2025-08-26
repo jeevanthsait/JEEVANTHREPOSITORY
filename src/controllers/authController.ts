@@ -5,18 +5,22 @@ import User from "../models/User";
 import { AuthRequest } from "../middleware/authMiddleware";
 import { MESSAGES } from "../constants/messages";
 import { CONFIG } from "../constants/config";
-import Product from "../models/product";
+import { addEmailToQueue } from "../queues/emailQueue"; // queue import
 
 export const register = async (req: Request, res: Response) => {
   try {
     const { name, email, password, role } = req.body;
+    console.log("Respponces:",req.body);
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ message: MESSAGES.USER_EXISTS });
     }
+
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await User.create({ name, email, password: hashedPassword, role });
 
+    // ✅ Add welcome email to queue
+    await addEmailToQueue(email);
     return res.status(201).json({ message: MESSAGES.REGISTER_SUCCESS, user });
   } catch (error) {
     console.error(" Register error:", error);
@@ -36,11 +40,12 @@ export const login = async (req: Request, res: Response) => {
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(400).json({ message: MESSAGES.INVALID_CREDENTIALS });
 
-const token = jwt.sign(
-  { id: user._id, email: user.email, role: user.role },
-  CONFIG.JWT_SECRET,  
-  { expiresIn: CONFIG.TOKEN_EXPIRY } 
-);
+    const token = jwt.sign(
+      { id: user._id, email: user.email, role: user.role },
+      CONFIG.JWT_SECRET,
+      { expiresIn: CONFIG.TOKEN_EXPIRY }
+    );
+
     return res.json({
       message: MESSAGES.LOGIN_SUCCESS,
       token,
@@ -71,5 +76,3 @@ export const getProfile = async (req: AuthRequest, res: Response) => {
     });
   }
 };
-
-

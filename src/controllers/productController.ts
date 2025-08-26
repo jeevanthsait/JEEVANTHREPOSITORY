@@ -4,8 +4,12 @@ import Product from "../models/product";
 // Create product
 export const createProduct = async (req: Request, res: Response) => {
   try {
-    const { name, description, price } = req.body;
-
+    let { name, description, price } = req.body;
+    console.log(req.body);
+      if(price)
+      {
+      price = Number(price);
+      }
     // Save only filenames, not objects
     const imagePaths = (req.files as Express.Multer.File[]).map(file => file.filename);
 

@@ -4,16 +4,17 @@ import Product from "../models/product";
 // Create product
 export const createProduct = async (req: Request, res: Response) => {
   try {
-    const { name, description, price } = req.body;
+    const { name, description, price } = req.body; // fixed destructuring
 
-    // Save only filenames, not objects
-    const imagePaths = (req.files as Express.Multer.File[]).map(file => file.filename);
+    // req.files is an array of uploaded file objects
+    const imagePaths = (req.files as Express.Multer.File[] || []).map(file => file.filename);
+    // optionally store full public URLs: `/uploads/${file.filename}`
 
     const product = await Product.create({
       name,
       description,
       price,
-      images: imagePaths,
+      images: imagePaths
     });
 
     res.status(201).json({ message: "Product created", product });
@@ -43,17 +44,22 @@ export const getProduct = async (req: Request, res: Response) => {
 };
 
 // Update product
+
 export const updateProduct = async (req: Request, res: Response) => {
   try {
-    const { name, description, price } = req.body;
+    const { name, description, price, existingImages } = req.body;
 
-    const imagePaths = req.files 
-      ? (req.files as Express.Multer.File[]).map(file => file.filename)
-      : [];
+    const files = req.files as Express.Multer.File[]; // assert type
+    const newImages = files?.map(file => file.filename) || [];
+
+    const finalImages = [
+      ...(existingImages ? JSON.parse(existingImages) : []),
+      ...newImages
+    ];
 
     const product = await Product.findByIdAndUpdate(
       req.params.id,
-      { name, description, price, ...(imagePaths.length && { images: imagePaths }) },
+      { name, description, price, images: finalImages },
       { new: true }
     );
 

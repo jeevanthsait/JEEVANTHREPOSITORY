@@ -5,7 +5,7 @@ import User from "../models/User";
 import { AuthRequest } from "../middleware/authMiddleware";
 import { MESSAGES } from "../constants/messages";
 import { CONFIG } from "../constants/config";
-import { addEmailToQueue } from "../queues/emailQueue"; // queue import
+import { addEmailToQueue } from "../queues/emailQueue"; 
 
 export const register = async (req: Request, res: Response) => {
   try {
@@ -18,12 +18,10 @@ export const register = async (req: Request, res: Response) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await User.create({ name, email, password: hashedPassword, role });
-
-    // ✅ Add welcome email to queue
     await addEmailToQueue(email);
     return res.status(201).json({ message: MESSAGES.REGISTER_SUCCESS, user });
   } catch (error) {
-    console.error(" Register error:", error);
+    console.error("Register error:", error);
     return res.status(500).json({
       message: MESSAGES.REGISTER_ERROR,
       error: error instanceof Error ? error.message : error,

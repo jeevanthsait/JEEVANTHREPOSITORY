@@ -8,23 +8,24 @@ const MONGO_URI = "mongodb://127.0.0.1:27017/admin";
 const seedData = async (): Promise<void> => {
   try {
     await mongoose.connect(MONGO_URI);
-    console.log(" MongoDB Connected");
-    const roles:any[] = ["admin", "user", "manager"];
-    const roleDocs: any[] = [];
+    console.log("MongoDB Connected");
 
-    for (const r of roles) {
-      let role = await Role.findOne({ name: r });
+    const roles = ["admin", "user", "manager"];
+    const roleDocs: (typeof Role.prototype)[] = [];
+
+    for (const roleName of roles) {
+      let role = await Role.findOne({ name: roleName });
       if (!role) {
-        role = await Role.create({ name: r });
-        console.log(` Role created: ${r}`);
+        role = await Role.create({ name: roleName });
+        console.log(`Role created: ${roleName}`);
       }
       roleDocs.push(role);
     }
-    
 
     const adminRole = roleDocs.find((r) => r.name === "admin");
-    const existingAdmin = await User.findOne({ email: "admin@example.com" });
+    if (!adminRole) throw new Error("Admin role not found");
 
+    const existingAdmin = await User.findOne({ email: "admin@example.com" });
     if (!existingAdmin) {
       const hashedPassword = await bcrypt.hash("admin123", 10);
       await User.create({
@@ -33,14 +34,14 @@ const seedData = async (): Promise<void> => {
         password: hashedPassword,
         role: adminRole._id,
       });
-      console.log(" Admin user created");
+      console.log("Admin user created");
     } else {
       console.log("Admin user already exists");
     }
 
-    process.exit();
-  } catch (err) {
-    console.error(" Seeding error:", err);
+    process.exit(0);
+  } catch (error: unknown) {
+    console.error("Seeding error:", error instanceof Error ? error.message : error);
     process.exit(1);
   }
 };

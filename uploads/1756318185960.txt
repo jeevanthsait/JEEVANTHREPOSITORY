@@ -1,0 +1,309 @@
+Understand the basic oops concepts:
+       
+- Class & Objects, inheritance, namespace, Constructor, abstraction, polymorphism & Encapsulation, static functions, access specifiers, method overloading, getter, and setter.
+ 
+- Post understanding notes of each concepts (Update the notes in google docs and share in group).
+ 
+Backend :
+ 
+- Understand the difference between mysql and nosql
+- Practice mongo db quires (find, update, delete, create, aggregate, projection, group, lookup)
+- Create backend project using express js connect to mongoDb
+- Backend should handle API and database.
+- Install postman and understand the usage.
+- Understand the http request methods and practice sample api calls.
+- Understand all status code related to API's.
+- Create schema for users with all necessary fields with admin and user roles.
+- Create seed for roles and user collections.
+- Create API for User registration, login with JWT token for authentication.
+- Create role based auth guards.
+- Must create all the API's using try catch.
+- Use constants variable for strings inside the codebase.
+- Create CRUD operation for products with image upload and use the same api while developing frontend.
+- Try single and multiple image upload for products (using multer)
+- Create API to filters the products
+       - Filter by name
+       - Filter by created date
+       - Filter by stock available
+- Add middleware for all the API's
+- Send mail using nodemailer with attachments (Practice with different mail templates).
+- Practice cron function and queues.
+- Practice Oops concept for all API's.
+- Create .env for all three dev, staging and production environments.
+- Setup eslint on project and complete the bugs daily.
+- Understand the basic concepts of unit testing using jest packages.
+ 
+Frontend :
+ 
+- Create a Angular web app
+- Use bootstrap for designs
+- Use translators to maintain the constants in UI
+- Create login and registration page (Integrate the API created) and store token in localstorage
+- Use Angular Frontend to fetch and display using the API created in Backend (CRUD operation)
+    - Product list
+    - Product delete
+    - Product update
+    - Product create
+    - Filter and sort products
+- Maintain the filters values in session storage
+- Use server response data tables to manage products
+- Handle the API data using services
+- Create project build using npm build (Understand the concept of build)
+- Practice NVM to change the node versions
+- Setup eslint on project and complete the bugs daily
+- Understand the basic concepts of unit testing
+ 
+Note :
+ 
+1) Use typescript and dto for both frontend and backend. Start backend first.
+2) Post the work status in group for every 1 hour with screenshot or video as reference
+3) Perform all the tasks in same project
+4) Get verified with TL on completing the every tasks
+5) Practice all the task in the above order, don't move to next tasks without completing the current tasks
+6) Post the EOD work status by mentioning completed tasks and tomorrows tasks (Must have 5 points with video as reference)
+7) Post the work status without any grammatical mistakes (Use grammarly.com to correct grammatical mistakes)
+8) Create the Github using office Gmail
+9) Daily commit the code changes in git (use three branches development > staging > production)
+10) Zip the code and post in group along with work status daily
+11) Strictly don't use AI tools and Youtube videos to complete tasks
+12) Don't discuss your doubts other than assigned TL
+13) Use visual studio code for development
+14) Install sonarLint extension and fix all issue in your code
+
+
+
+Completed Work Summary (19th Aug 2025)
+
+-Learned the difference between MySQL  and NoSQL :
+
+MySQL: Structured, table-based, uses SQL queries, best for transactional systems (e.g banking, ERP).
+
+NoSQL: Flexible schema, supports document, key-value, scales horizontally, best for big data (e.g IoT).
+
+Practiced MongoDB queries:
+
+find() → Retrieve documents or single fiels  from a collection.
+
+aggregate() → Perform advanced data processing and transformations.
+
+$group → Group documents and apply aggregate functions (e.g., sum, count, avg).
+
+insert() / insertMany() → Create new records.
+
+updateOne() / updateMany() → Modify existing records.
+
+deleteOne() / deleteMany() → Remove records.
+
+projections- It means selecting only specific fields based on conditions
+
+Loopup-Used to combine the collections
+
+I have learned how ro create the Expressts with database(Mongo DB) connetivity.
+
+create the folder to hold the project structure
+
+created the npm init to acces the package.json
+
+configured the ts file in the package.json
+
+Installed the express and after running the project 
+
+created the mongoDb connectivity and create the api in the index.file folder
+
+Tomorrow Wrok Task
+
+-Install postman and understand the usage.
+- Understand the http request methods and practice sample api calls.
+- Understand all status code related to API's.
+- Create schema for users with all necessary fields with admin and user roles.
+
+Video Link
+1.https://go.screenpal.com/watch/cTjqb1n2tWJ
+2.https://go.screenpal.com/watch/cTjqbXn2ucE
+
+
+Work Status
+Today Task
+- Understand the http request methods and practice sample api calls.
+- Understand all status code related to API's.
+- Create schema for users with all necessary fields with admin and user roles.
+ 
+
+Work Status 
+I have Completed  Install postman and understand the usage
+https://docs.google.com/document/d/1X7UOFq3lH56_YNj9ZdkkLmGkP1O4HHPG54fvc5nxYJI/edit?usp=sharing
+
+Status Update
+I am Facing the error in put and delete Http  method in Express Ts with Mongo Db
+
+-----
+Work status 
+I have completed Understand all status code related to API's.
+https://docs.google.com/document/d/1P974VW8UpuLf0vC4ZgbvHg6bsa1gJ17ZAWE3LnsQUrw/edit?usp=sharing
+
+--
+
+Work Status
+I have completed Understand the http request methods and practice sample api calls
+https://docs.google.com/document/d/1SbVnLRFRgP4pjhWmAt8mGZ8SSgVjg62k8cX2bO3TCpA/edit?usp=sharing
+
+video Link
+https://www.awesomescreenshot.com/video/43337644?key=e215b1408eb218f67f5b444f415bc140
+
+------
+
+
+Today Completed Work status
+Summary
+- First I have learned the Postman Installation  and Basic for testing the API
+-Go To the Official Websites install  select the  OS(Operating System) windows.exe file  and download.
+-After Downloading it  extract the file and install 
+-Once the Installations is completed sign in or register to postman
+-After the sign in process create the workspace to implement http methods
+-Select the options for creating workspace 
+Example:
+*API Testing
+*API Developement
+-I have learned about the http methods and sample Rest-API creations.
+*Using route and models
+-Http is an (Hypertext transfer protocol) used to communicating with both client and server Interactions.
+-Common Types of Http:
+*Get request method-used to get the data from the database
+*post request method-used to send the post req based on client 
+*put request method-used to update the particular field or records
+*delete request methods-used to delete the record from the database
+-I have Learned about status code
+*Informational status code-The client should continue with the request
+example:100OK
+*Client success code-Once the API(endpoint is fetched succes status will display)
+examle:200OK
+*Client Error code-it will display based on the bad req and route path error
+Example:-400NOT FOUND
+*Server status code -used when the server crash it will display.
+Example:-500ERROR
+
+Tomorrow Task
+- Create schema for users with all necessary fields with admin and user roles.
+- Create seed for roles and user collections.
+- Create API for User registration, login with JWT token for authentication.
+
+video Link
+https://www.awesomescreenshot.com/video/43337644?key=e215b1408eb218f67f5b444f415bc140
+
+GITHUB REQ
+https://github.com/jeevanthsait/NEWJEEVANTHREPO/pull/1
+
+Work status 
+Today Task(20/8/2025)
+- Create schema for users with all necessary fields with admin and user roles.
+- Create seed for roles and user collections.
+- Create API for User registration, login with JWT token for authentication.
+
+Work Status
+I have Completed Create schema for users with all necessary fields with admin and user roles.
+https://docs.google.com/document/d/15_WUrGD89xcV5Kk-vu0ib_JgZfMnwbt4zNGR-YAWK8o/edit?usp=sharing
+
+
+Current Status
+Creating  seed for roles and user collections 
+
+
+End of the Day 
+Summary
+1.first I have installed the Express ts Project and configured it into the Typescript .
+2.
+
+
+Tomorrow Task
+- Create role based auth guards.
+- Must create all the API's using try catch.
+- Use constants variable for strings inside the codebase.
+
+
+Today tash Git hub link
+
+---seed operations--
+Work Status
+I have completed Creating a seed for roles and user collections.
+https://docs.google.com/document/d/1aFfKYpDya2MJKIYFe7pnfvalxFg3oMfAjXMrIk3P0ek/edit?usp=sharing
+Video Link
+
+
+Today Task                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+- Create role based auth guards.
+- Must create all the API's using try catch.
+- Use constants variable for strings inside the codebase.
+
+
+
+----Todat 22/8/2025---
+
+Work Status
+I have Completed creating the role based authentications 
+https://docs.google.com/document/d/1guU8lwR9BvrVfw3gKwnfaout--2rZg-Iw-yZRMAuyLs/edit?usp=sharing
+-------Uploaded in group---
+
+Work Status
+I have Completed Must create all the API's using try catch.
+https://docs.google.com/document/d/1Z_jW7fF89yQRVWdzN4Ig-ml3F3RQDq3iPN15U3vBDG8/edit?usp=sharing
+
+Work status 
+I have completes constants variable for strings inside the codebase.
+https://docs.google.com/document/d/1YeBtisOV2gHiFw1yj9kQUhqwVDLR829UwDp80eLYHjc/edit?usp=sharing
+
+
+
+Github PR Link
+
+
+
+Work Status -End of the day(22/8/2025)
+Summary
+1.I have created the express project with typescript.
+2.I have created the models folder for creating the schema(User,roles,admin).
+3.I have created the middelware for (authentications and authorizations and handling the error).
+4.I have created the controller to handle the logic of the role based authentications(register,login,profile).
+5.I have created the router for user  autheticatons(register and login) and role authentications(admin,manager,users).
+6.I have created the api in the try and catch
+Example:
+*try-It is an content block used to throw the error.
+*catch-it is used to catch the error (Exceptions error from try content).
+7.I am using my existing project for doing these above task.
+8.In my current project ,I have created the model and router and controller and middleware for
+(authentications , authorizations)role based operations based on role.
+Example:
+10.Users--The user cannot able to access everything  into the project .
+11.Admin–The Admin can  access everything into the project.
+12.Manager-The manager can  access few thing into the project.
+13.I have created the constant folder for doing this task.
+14.Inside the constant folder ,I have created the role and messages and config file.
+Example;
+*Storing the constant var  in the message folder for binding the data to another file.
+*Canonical strings for roles used across the app
+*Used to load both the environment file and database file for tokes verifications.
+
+Vide link:
+https://www.awesomescreenshot.com/video/43423882?key=8fc910c6aedbe7f4525e6470927d2081
+
+Pull request link:
+https://github.com/jeevanthsait/JEEVANTHREPOSITORY/pull/2
+Tomorrow task:
+Create CRUD operation for products with image upload and use the same api while developing frontend.
+- Try single and multiple image upload for products (using multer)
+- Create API to filters the products
+     - Filter by name
+     - Filter by created date
+     - Filter by stock available.
+------------------------------
+Today Notes(23/8/2025)
+
+Work status
+Today Task
+Create CRUD operation for products with image upload and use the same api while developing frontend.
+- Try single and multiple image upload for products (using multer)
+- Create API to filters the products
+     - Filter by name
+     - Filter by created date
+     - Filter by stock available.
+
+
